@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="chatContainer">
+        <div id="chatBox"></div>
+        <input type="text" id="userInput" placeholder="Type your message here...">
+        <button id="sendButton" onclick="sendMessage()">Send</button>
+    </div>
+    <script>
+        function sendMessage() {
+            const message = document.getElementById("userInput").value;
+            if (message.trim() === "") {
+                alert("Please enter a message.");
+                return;
+            }
+
+            // Append the message to the chatbox
+            const chatBox = document.getElementById("chatBox");
+            const userMessageElement = document.createElement("p");
+            userMessageElement.classList.add("user-message");
+            userMessageElement.textContent = message;
+            chatBox.appendChild(userMessageElement);
+
+            // Clear the input box
+            document.getElementById("userInput").value = "";
+
+            // Add your fetch or API logic here (if needed)
+            console.log("Message sent: " + message);
+        }
+    </script>
+</body>
+</html>
